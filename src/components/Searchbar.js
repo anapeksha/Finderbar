@@ -1,22 +1,33 @@
 import { Search } from "@mui/icons-material";
-import { IconButton, InputAdornment } from "@mui/material";
+import { InputAdornment } from "@mui/material";
 import * as React from "react";
-import { CustomTextField } from "../styles";
+import { CustomIconButton, CustomTextField } from "../styles";
 
 const Searchbar = (props) => {
 	const handleChange = (event) => {
-		props.setSearch(event.target.value);
+		props.handleChange(event.target.value);
 	};
 
 	return (
 		<div>
 			<CustomTextField
+				value={props.value}
+				onChange={handleChange}
+				placeholder="Search"
+				sx={{
+					input: {
+						color: "white",
+					},
+					label: {
+						color: "#c9cfcf",
+					},
+				}}
 				InputProps={{
 					endAdornment: (
 						<InputAdornment position="end">
-							<IconButton>
+							<CustomIconButton onClick={props.handleSearch}>
 								<Search />
-							</IconButton>
+							</CustomIconButton>
 						</InputAdornment>
 					),
 				}}
