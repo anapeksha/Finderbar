@@ -1,10 +1,11 @@
 import { Box, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import Cards from "../components/Cards";
+import Paginate from "../components/Paginate";
 import Searchbar from "../components/Searchbar";
+import handleImage from "../controllers/handleImage";
 import searchMovies from "../controllers/searchMovies";
 import trendingMovies from "../controllers/trendingMovies";
-import handleImage from "../controllers/handleImage";
 
 const Browse = () => {
 	const [search, setSearch] = useState("");
@@ -25,7 +26,7 @@ const Browse = () => {
 	}, []);
 
 	return (
-		<div>
+		<Box style={{ display: "flex", flexDirection: "column" }}>
 			<Box
 				style={{
 					display: "flex",
@@ -43,30 +44,32 @@ const Browse = () => {
 				style={{
 					display: "flex",
 					margin: "3vh 2vw",
-					maxHeight: "77vh",
+					maxHeight: "70vh",
 				}}
 			>
 				<Grid
 					sx={{ flexGrow: 1 }}
 					container
-					spacing={3}
+					spacing={1.5}
 					style={{ overflow: "auto" }}
 				>
 					{searchResults.map((result) => {
 						return (
-							<Grid item xs={6} sm={4} md={3}>
+							<Grid item xs={4} sm={3} md={2} key={result.id}>
 								<Cards
 									altText={result.original_title}
 									image={handleImage(result.poster_path)}
 									title={result.title}
-									key={result.id}
 								/>
 							</Grid>
 						);
 					})}
 				</Grid>
 			</Box>
-		</div>
+			<Box>
+				<Paginate />
+			</Box>
+		</Box>
 	);
 };
 
