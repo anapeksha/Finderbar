@@ -1,4 +1,5 @@
 import Wrapper from "./Wrapper";
-import CustomIconButton from "./CustomIconButton";
+import CustomIconButton from "./CustomIconButton.style";
+import CustomTextField from "./CustomTextField.style";
 
-export {Wrapper, CustomIconButton};
+export {Wrapper, CustomIconButton, CustomTextField};
