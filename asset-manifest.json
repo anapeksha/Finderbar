@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Finderbar/static/css/main.0febfc2c.css",
+    "main.js": "/Finderbar/static/js/main.098e9999.js",
+    "service-worker.js": "/Finderbar/service-worker.js",
+    "index.html": "/Finderbar/index.html",
+    "main.0febfc2c.css.map": "/Finderbar/static/css/main.0febfc2c.css.map",
+    "main.098e9999.js.map": "/Finderbar/static/js/main.098e9999.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0febfc2c.css",
+    "static/js/main.098e9999.js"
+  ]
+}
