@@ -22,8 +22,10 @@ const Home = () => {
 	return (
 		<Wrapper>
 			<Box className={animate.text} style={{ color: "#c9cfcf" }}>
-				<Typography variant="h3">Welcome to Finderbar</Typography>
-				<Typography variant="h5" style={{ textAlign: "center" }}>
+				<Typography variant="h4" style={{ textAlign: "center" }}>
+					Welcome to Finderbar
+				</Typography>
+				<Typography variant="h6" style={{ textAlign: "center" }}>
 					Click here to continue
 				</Typography>
 			</Box>
