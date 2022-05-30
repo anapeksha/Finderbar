@@ -8,7 +8,7 @@ const Navbar = () => {
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar
-				position="absolute"
+				position="fixed"
 				style={{
 					backgroundColor: "#161b22",
 					boxShadow:
