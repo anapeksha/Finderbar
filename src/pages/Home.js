@@ -20,7 +20,7 @@ const Home = () => {
 		}, 1750);
 	};
 	return (
-		<Wrapper>
+		<Wrapper style={{ overflow: "hidden" }}>
 			<Box className={animate.text} style={{ color: "#c9cfcf" }}>
 				<Typography variant="h4" style={{ textAlign: "center" }}>
 					Welcome to Finderbar
