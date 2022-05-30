@@ -21,17 +21,19 @@ const Cards = (props) => {
 				<CardMedia
 					component="img"
 					height="140"
-					image="/static/images/cards/contemplative-reptile.jpg"
-					alt="green iguana"
+					image={props.image}
+					alt={props.altText}
 				/>
 				<CardContent>
-					<Typography gutterBottom variant="h5" component="div">
-						Lizard
+					<Typography
+						gutterBottom
+						variant="overline"
+						display="block"
+						component="div"
+					>
+						{props.title}
 					</Typography>
-					<Typography variant="body2">
-						Lizards are a widespread group of squamate reptiles, with over 6,000
-						species, ranging across all continents except Antarctica
-					</Typography>
+					<Typography variant="body2">{props.description}</Typography>
 				</CardContent>
 			</CardActionArea>
 		</Card>
