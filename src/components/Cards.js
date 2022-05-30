@@ -15,7 +15,7 @@ const Cards = (props) => {
 				minHeight: 300,
 				maxHeight: 300,
 				backgroundColor: "#1a1e25",
-				color: "white",
+				color: "whitesmoke",
 			}}
 			className="animate__animated animate__fadeIn animate__slow"
 		>
