@@ -16,6 +16,7 @@ root.render(
 						backgroundColor: "#0d1116",
 						WebkitFontSmoothing: "antialiased",
 						MozOsxFontSmoothing: "grayscale",
+						overflow: "hidden",
 					},
 				}}
 			/>
