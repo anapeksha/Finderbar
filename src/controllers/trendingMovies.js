@@ -1,9 +1,9 @@
 import axios from "axios";
 import { API_KEY } from "../uri";
 
-const trendingMovies = () => {
+const trendingMovies = (page) => {
 	return axios(
-		`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}`,
+		`https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=${page}`,
 		{
 			method: "GET",
 		}

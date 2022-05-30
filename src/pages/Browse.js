@@ -9,21 +9,38 @@ import trendingMovies from "../controllers/trendingMovies";
 
 const Browse = () => {
 	const [search, setSearch] = useState("");
-
+	const [page, setPage] = useState(1);
+	const [allPages, setAllPages] = useState(0);
+	const [searching, setSearching] = useState(false);
 	const [searchResults, setSearchResults] = useState([]);
 
 	const handleSearch = () => {
-		searchMovies(search).then((data) => {
-			console.log(data);
+		searchMovies(search, 1).then((data) => {
 			setSearchResults(data.results);
+			setSearching(true);
 		});
 	};
 
 	useEffect(() => {
-		trendingMovies().then((data) => {
-			setSearchResults(data.results);
-		});
-	}, []);
+		if (searching) {
+			searchMovies(search, page).then((data) => {
+				setSearchResults(data.results);
+				setAllPages(data.total_pages);
+			});
+		} else {
+			trendingMovies(page).then((data) => {
+				setSearchResults(data.results);
+			});
+		}
+	}, [page, searching]);
+
+	const handlePagination = () => {
+		if (searching) {
+			return <Paginate setPage={setPage} pages={allPages} />;
+		} else {
+			return <Paginate setPage={setPage} />;
+		}
+	};
 
 	return (
 		<Box style={{ display: "flex", flexDirection: "column" }}>
@@ -66,9 +83,7 @@ const Browse = () => {
 					})}
 				</Grid>
 			</Box>
-			<Box>
-				<Paginate />
-			</Box>
+			<Box>{handlePagination()}</Box>
 		</Box>
 	);
 };

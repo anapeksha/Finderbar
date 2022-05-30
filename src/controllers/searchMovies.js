@@ -1,10 +1,10 @@
 import axios from "axios";
 import { API_KEY } from "../uri";
 
-const searchMovies = (query) => {
+const searchMovies = (query, page) => {
 	var searchQuery = query.split(" ").join("+");
 	return axios(
-		`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}`,
+		`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchQuery}&page=${page}`,
 		{
 			method: "GET",
 		}
