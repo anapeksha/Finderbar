@@ -4,6 +4,7 @@ import Cards from "../components/Cards";
 import Searchbar from "../components/Searchbar";
 import searchMovies from "../controllers/searchMovies";
 import trendingMovies from "../controllers/trendingMovies";
+import handleImage from "../controllers/handleImage";
 
 const Browse = () => {
 	const [search, setSearch] = useState("");
@@ -56,7 +57,7 @@ const Browse = () => {
 							<Grid item xs={6} sm={4} md={3}>
 								<Cards
 									altText={result.original_title}
-									image={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
+									image={handleImage(result.poster_path)}
 									title={result.title}
 									key={result.id}
 								/>
