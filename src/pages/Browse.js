@@ -1,36 +1,42 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Cards from "../components/Cards";
 import Searchbar from "../components/Searchbar";
+import searchMovies from "../controllers/searchMovies";
+import trendingMovies from "../controllers/trendingMovies";
 
 const Browse = () => {
-	const arr = [
-		"1",
-		"2",
-		"3",
-		"4",
-		"5",
-		"6",
-		"7",
-		"8",
-		"9",
-		"10",
-		"11",
-		"12",
-		"13",
-		"14",
-		"15",
-	];
+	const [search, setSearch] = useState("");
+
+	const [searchResults, setSearchResults] = useState([]);
+
+	const handleSearch = () => {
+		searchMovies(search).then((data) => {
+			console.log(data);
+			setSearchResults(data.results);
+		});
+	};
+
+	useEffect(() => {
+		trendingMovies().then((data) => {
+			setSearchResults(data.results);
+		});
+	}, []);
+
 	return (
 		<div>
 			<Box
 				style={{
 					display: "flex",
 					justifyContent: "center",
-					marginTop: "70px",
+					marginTop: "90px",
 				}}
 			>
-				<Searchbar />
+				<Searchbar
+					value={search}
+					handleChange={setSearch}
+					onSearch={handleSearch}
+				/>
 			</Box>
 			<Box
 				style={{
@@ -42,13 +48,18 @@ const Browse = () => {
 				<Grid
 					sx={{ flexGrow: 1 }}
 					container
-					spacing={1}
+					spacing={3}
 					style={{ overflow: "auto" }}
 				>
-					{arr.map((a) => {
+					{searchResults.map((result) => {
 						return (
 							<Grid item xs={6} sm={4} md={3}>
-								<Cards />
+								<Cards
+									altText={result.original_title}
+									image={`https://image.tmdb.org/t/p/w500${result.poster_path}`}
+									title={result.title}
+									key={result.id}
+								/>
 							</Grid>
 						);
 					})}
