@@ -12,6 +12,8 @@ const Cards = (props) => {
 		<Card
 			sx={{
 				maxWidth: 345,
+				minHeight: 300,
+				maxHeight: 300,
 				backgroundColor: "#1a1e25",
 				color: "white",
 			}}
@@ -20,22 +22,23 @@ const Cards = (props) => {
 			<CardActionArea>
 				<CardMedia
 					component="img"
-					height="140"
+					height="200"
+					style={{ objectFit: "contain" }}
 					image={props.image}
 					alt={props.altText}
 				/>
-				<CardContent>
-					<Typography
-						gutterBottom
-						variant="overline"
-						display="block"
-						component="div"
-					>
-						{props.title}
-					</Typography>
-					<Typography variant="body2">{props.description}</Typography>
-				</CardContent>
 			</CardActionArea>
+			<CardContent>
+				<Typography
+					gutterBottom
+					variant="overline"
+					display="block"
+					component="div"
+				>
+					{props.title}
+				</Typography>
+				<Typography variant="body2">{props.description}</Typography>
+			</CardContent>
 		</Card>
 	);
 };
