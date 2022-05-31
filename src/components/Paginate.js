@@ -5,7 +5,7 @@ const theme = createTheme({
 	palette: {
 		mode: "dark",
 		primary: {
-			main: "#c0c0c0",
+			main: "#f5f5f5",
 		},
 	},
 });
@@ -13,7 +13,11 @@ const theme = createTheme({
 const Paginate = (props) => {
 	const handleChange = (page) => {
 		props.setPage(page);
-		window.scroll(0, 0);
+		window.scrollTo({
+			top: 0,
+			left: 0,
+			behavior: "smooth",
+		});
 	};
 	return (
 		<Stack
@@ -31,7 +35,6 @@ const Paginate = (props) => {
 					style={{
 						display: "flex",
 						justifyContent: "center",
-						marginTop: "0.5vh",
 					}}
 					hideNextButton
 					hidePrevButton
