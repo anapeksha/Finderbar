@@ -8,22 +8,23 @@ import searchMovies from "../controllers/searchMovies";
 import trendingMovies from "../controllers/trendingMovies";
 
 const Browse = () => {
-	const [search, setSearch] = useState("");
+	const [searchQuery, setSearchQuery] = useState("");
 	const [page, setPage] = useState(1);
 	const [allPages, setAllPages] = useState(0);
 	const [searching, setSearching] = useState(false);
 	const [searchResults, setSearchResults] = useState([]);
 
 	const handleSearch = () => {
-		searchMovies(search, 1).then((data) => {
+		searchMovies(searchQuery, 1).then((data) => {
 			setSearchResults(data.results);
+			setAllPages(data.total_pages);
 			setSearching(true);
 		});
 	};
 
 	useEffect(() => {
 		if (searching) {
-			searchMovies(search, page).then((data) => {
+			searchMovies(searchQuery, page).then((data) => {
 				setSearchResults(data.results);
 				setAllPages(data.total_pages);
 			});
@@ -52,8 +53,8 @@ const Browse = () => {
 				}}
 			>
 				<Searchbar
-					value={search}
-					handleChange={setSearch}
+					value={searchQuery}
+					handleChange={setSearchQuery}
 					onSearch={handleSearch}
 				/>
 			</Box>
