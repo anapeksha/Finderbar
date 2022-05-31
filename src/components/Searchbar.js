@@ -4,15 +4,16 @@ import * as React from "react";
 import { CustomIconButton, CustomTextField } from "../styles";
 
 const Searchbar = (props) => {
-	const handleChange = (event) => {
-		props.handleChange(event.target.value);
+	const handleClose = () => {
+		if (props.value !== "") {
+		}
 	};
 
 	return (
 		<div>
 			<CustomTextField
 				value={props.value}
-				onChange={handleChange}
+				onChange={(event) => props.handleChange(event.target.value)}
 				placeholder="Search"
 				sx={{
 					input: {
