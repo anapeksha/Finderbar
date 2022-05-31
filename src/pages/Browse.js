@@ -1,11 +1,9 @@
+import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
 import { Box, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import Cards from "../components/Cards";
-import Paginate from "../components/Paginate";
-import Searchbar from "../components/Searchbar";
-import handleImage from "../controllers/handleImage";
-import searchMovies from "../controllers/searchMovies";
-import trendingMovies from "../controllers/trendingMovies";
+import ScrollToTop from "react-scroll-to-top";
+import { Cards, Paginate, Searchbar } from "../components";
+import { handleImage, searchMovies, trendingMovies } from "../controllers";
 
 const Browse = () => {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -62,15 +60,14 @@ const Browse = () => {
 				style={{
 					display: "flex",
 					margin: "3vh 2vw",
-					maxHeight: "70vh",
 				}}
 			>
-				<Grid
-					sx={{ flexGrow: 1 }}
-					container
-					spacing={1.5}
-					style={{ overflow: "auto" }}
-				>
+				<ScrollToTop
+					smooth
+					style={{ backgroundColor: "#e4e4e4" }}
+					component={<KeyboardArrowUpRoundedIcon />}
+				/>
+				<Grid sx={{ flexGrow: 1 }} container spacing={2}>
 					{searchResults.map((result) => {
 						return (
 							<Grid item xs={4} sm={3} md={2} key={result.id}>
