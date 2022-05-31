@@ -6432,6 +6432,7 @@ __metadata:
     react-dom: ^18.1.0
     react-router-dom: ^6.3.0
     react-scripts: 5.0.1
+    react-scroll-to-top: ^1.0.8
     web-vitals: ^2.1.4
     workbox-background-sync: ^6.4.2
     workbox-broadcast-update: ^6.4.2
@@ -10800,6 +10801,15 @@ __metadata:
   bin:
     react-scripts: bin/react-scripts.js
   checksum: 92afa2f245c7092ccc97d5609dc7a2130616262e34da7f15072d9442e2d2e1d4909a91022abd1faac1336eb17c5525a10d9bd43e1ae374c7ec941ca20addca68
+  languageName: node
+  linkType: hard
+
+"react-scroll-to-top@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "react-scroll-to-top@npm:1.0.8"
+  peerDependencies:
+    react: ^16.8.0 || 17.x
+  checksum: 2b778aed9b613adb4f1dd10c354b0725c895c72824282f4e148570bd0045566e980b46453491206aaafde6ecda9de89ad1bfdbd3a035a401178df8e131864983
   languageName: node
   linkType: hard
 
