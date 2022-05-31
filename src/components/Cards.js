@@ -6,18 +6,17 @@ import {
 	Typography,
 } from "@mui/material";
 import * as React from "react";
+import "../styles/card.css";
 
 const Cards = (props) => {
 	return (
 		<Card
 			sx={{
 				maxWidth: 345,
-				minHeight: 300,
-				maxHeight: 300,
 				backgroundColor: "#1a1e25",
 				color: "whitesmoke",
 			}}
-			className="animate__animated animate__fadeIn animate__slow"
+			className="animate__animated animate__fadeIn animate__slow card"
 		>
 			<CardActionArea>
 				<CardMedia
