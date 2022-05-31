@@ -16,7 +16,7 @@ const Cards = (props) => {
 				backgroundColor: "#1a1e25",
 				color: "whitesmoke",
 				boxShadow:
-					"rgba(0, 0, 0, 0.3) 0px 19px 38px 0px, rgba(0, 0, 0, 0.22) 0px 15px 12px 0px;",
+					"rgba(0, 0, 0, 0.3) 0px 19px 38px 0px, rgba(0, 0, 0, 0.22) 0px 15px 12px 0px",
 			}}
 			className="animate__animated animate__fadeIn animate__slower"
 		>
