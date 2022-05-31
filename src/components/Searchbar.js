@@ -4,11 +4,6 @@ import * as React from "react";
 import { CustomIconButton, CustomTextField } from "../styles";
 
 const Searchbar = (props) => {
-	const handleClose = () => {
-		if (props.value !== "") {
-		}
-	};
-
 	return (
 		<div>
 			<CustomTextField
