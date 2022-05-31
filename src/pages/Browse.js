@@ -67,7 +67,7 @@ const Browse = () => {
 					style={{ backgroundColor: "#e4e4e4" }}
 					component={<KeyboardArrowUpRoundedIcon />}
 				/>
-				<Grid sx={{ flexGrow: 1 }} container spacing={2}>
+				<Grid sx={{ flexGrow: 1 }} container spacing={2.75}>
 					{searchResults.map((result) => {
 						return (
 							<Grid item xs={4} sm={3} md={2} key={result.id}>
