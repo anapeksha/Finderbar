@@ -34,11 +34,10 @@ const Cards = (props) => {
 					fontSize="9px"
 					display="block"
 					component="div"
-					className="card-text"
+					textAlign="center"
 				>
 					{props.title}
 				</Typography>
-				<Typography variant="body2">{props.description}</Typography>
 			</CardContent>
 		</Card>
 	);
