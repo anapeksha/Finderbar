@@ -6,7 +6,6 @@ import {
 	Typography,
 } from "@mui/material";
 import * as React from "react";
-import "../styles/card.css";
 
 const Cards = (props) => {
 	return (
@@ -17,7 +16,7 @@ const Cards = (props) => {
 				backgroundColor: "#1a1e25",
 				color: "whitesmoke",
 			}}
-			className="animate__animated animate__fadeIn animate__slow card"
+			className="animate__animated animate__fadeIn animate__slow"
 		>
 			<CardActionArea>
 				<CardMedia
