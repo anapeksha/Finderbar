@@ -13,6 +13,7 @@ const Cards = (props) => {
 		<Card
 			sx={{
 				maxWidth: 345,
+				height: 320,
 				backgroundColor: "#1a1e25",
 				color: "whitesmoke",
 			}}
@@ -31,8 +32,10 @@ const Cards = (props) => {
 				<Typography
 					gutterBottom
 					variant="overline"
+					fontSize="9px"
 					display="block"
 					component="div"
+					className="card-text"
 				>
 					{props.title}
 				</Typography>
