@@ -16,7 +16,7 @@ const Cards = (props) => {
 				backgroundColor: "#1a1e25",
 				color: "whitesmoke",
 			}}
-			className="animate__animated animate__fadeIn animate__slow"
+			className="animate__animated animate__fadeIn animate__slower"
 		>
 			<CardActionArea>
 				<CardMedia

@@ -16,7 +16,10 @@ const Paginate = (props) => {
 		window.scroll(0, 0);
 	};
 	return (
-		<Stack spacing={2}>
+		<Stack
+			spacing={2}
+			className="animate__animated animate__fadeIn animate__fast"
+		>
 			<ThemeProvider theme={theme}>
 				<Pagination
 					count={props.pages || 10}

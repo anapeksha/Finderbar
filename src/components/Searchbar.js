@@ -32,6 +32,7 @@ const Searchbar = (props) => {
 						</InputAdornment>
 					),
 				}}
+				className="animate__animated animate__fadeIn animate__fast"
 			/>
 		</div>
 	);
