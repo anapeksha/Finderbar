@@ -1,4 +1,5 @@
 import { Search } from "@mui/icons-material";
+import ClearIcon from "@mui/icons-material/Clear";
 import { InputAdornment } from "@mui/material";
 import * as React from "react";
 import { CustomIconButton, CustomTextField } from "../styles";
@@ -21,6 +22,11 @@ const Searchbar = (props) => {
 				InputProps={{
 					endAdornment: (
 						<InputAdornment position="end">
+							{props.value !== "" ? (
+								<CustomIconButton onClick={props.onClear} size="small">
+									<ClearIcon fontSize="small" />
+								</CustomIconButton>
+							) : null}
 							<CustomIconButton onClick={props.onSearch}>
 								<Search />
 							</CustomIconButton>
