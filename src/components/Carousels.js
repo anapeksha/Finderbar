@@ -6,9 +6,10 @@ import MobileStepper from "@mui/material/MobileStepper";
 import Paper from "@mui/material/Paper";
 import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay } from "react-swipeable-views-utils";
+import { handleImage } from "../controllers";
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -36,6 +37,10 @@ const images = [
 ];
 
 const Carousels = (props) => {
+	const [credits, setCredits] = useState([]);
+
+	useEffect(() => {}, []);
+
 	const theme = useTheme();
 	const [activeStep, setActiveStep] = React.useState(0);
 	const maxSteps = images.length;
@@ -65,7 +70,7 @@ const Carousels = (props) => {
 					bgcolor: "background.default",
 				}}
 			>
-				<Typography>{images[activeStep].label}</Typography>
+				<Typography>{credits[activeStep].name}</Typography>
 			</Paper>
 			<AutoPlaySwipeableViews
 				axis={theme.direction === "rtl" ? "x-reverse" : "x"}
@@ -73,8 +78,8 @@ const Carousels = (props) => {
 				onChangeIndex={handleStepChange}
 				enableMouseEvents
 			>
-				{images.map((step, index) => (
-					<div key={step.label}>
+				{credits.map((credit, index) => (
+					<div key={credit.id}>
 						{Math.abs(activeStep - index) <= 2 ? (
 							<Box
 								component="img"
@@ -85,8 +90,8 @@ const Carousels = (props) => {
 									overflow: "hidden",
 									width: "100%",
 								}}
-								src={step.imgPath}
-								alt={step.label}
+								src={handleImage(credit.profile_path)}
+								alt={credit?.name}
 							/>
 						) : null}
 					</div>
