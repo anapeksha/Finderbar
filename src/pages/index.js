@@ -1,4 +1,5 @@
-import Home from "./Home";
 import Browse from "./Browse";
+import Home from "./Home";
+import ViewMovie from "./ViewMovie";
 
-export { Home, Browse };
+export { Home, Browse, ViewMovie };
