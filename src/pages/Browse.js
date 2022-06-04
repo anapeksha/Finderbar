@@ -41,6 +41,10 @@ const Browse = () => {
 		}
 	};
 
+	const handleClear = () => {
+		setSearchQuery("");
+	};
+
 	return (
 		<Box style={{ display: "flex", flexDirection: "column" }}>
 			<Box
@@ -54,6 +58,7 @@ const Browse = () => {
 					value={searchQuery}
 					handleChange={setSearchQuery}
 					onSearch={handleSearch}
+					onClear={handleClear}
 				/>
 			</Box>
 			<Box
