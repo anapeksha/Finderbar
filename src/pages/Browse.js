@@ -31,6 +31,7 @@ const Browse = () => {
 				setSearchResults(data.results);
 			});
 		}
+		// eslint-disable-next-line
 	}, [page, searching]);
 
 	const handlePagination = () => {
@@ -80,6 +81,7 @@ const Browse = () => {
 									altText={result.original_title}
 									image={handleImage(result.poster_path)}
 									title={result.title}
+									id={result.id}
 								/>
 							</Grid>
 						);
