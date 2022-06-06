@@ -1,6 +1,8 @@
+import Cards from "./Cards";
+import Carousel from "./Carousel";
+import Modal from "./Modal";
 import Navbar from "./Navbar";
 import Paginate from "./Paginate";
 import Searchbar from "./Searchbar";
-import Cards from "./Cards";
 
-export { Navbar, Paginate, Searchbar, Cards };
+export { Navbar, Paginate, Searchbar, Cards, Carousel, Modal };
