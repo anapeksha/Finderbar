@@ -2,7 +2,7 @@ import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRound
 import { Box, Grid } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import ScrollToTop from "react-scroll-to-top";
-import { Cards, Paginate, Searchbar } from "../components";
+import { Cards, Modal, Paginate, Searchbar } from "../components";
 import { handleImage, searchMovies, trendingMovies } from "../controllers";
 
 const Browse = () => {
@@ -11,6 +11,9 @@ const Browse = () => {
 	const [allPages, setAllPages] = useState(0);
 	const [searching, setSearching] = useState(false);
 	const [searchResults, setSearchResults] = useState([]);
+	const [modalOpen, setModalOpen] = useState(false);
+
+	const [dataonClick, setDataonClick] = useState({});
 
 	const handleSearch = () => {
 		searchMovies(searchQuery, 1).then((data) => {
@@ -31,6 +34,7 @@ const Browse = () => {
 				setSearchResults(data.results);
 			});
 		}
+
 		// eslint-disable-next-line
 	}, [page, searching]);
 
@@ -41,7 +45,6 @@ const Browse = () => {
 			return <Paginate setPage={setPage} />;
 		}
 	};
-
 	const handleClear = () => {
 		setSearchQuery("");
 	};
@@ -82,12 +85,18 @@ const Browse = () => {
 									image={handleImage(result.poster_path)}
 									title={result.title}
 									id={result.id}
+									handleModalOpen={() => {
+										setDataonClick(result);
+										setModalOpen(true);
+										console.log(result);
+									}}
 								/>
 							</Grid>
 						);
 					})}
 				</Grid>
 			</Box>
+			<Modal data={dataonClick} open={modalOpen} setOpen={setModalOpen} />
 			<Box>{handlePagination()}</Box>
 		</Box>
 	);
