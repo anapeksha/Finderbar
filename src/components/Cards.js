@@ -20,7 +20,7 @@ const Cards = (props) => {
 			}}
 			className="animate__animated animate__fadeIn animate__slower"
 		>
-			<CardActionArea href={`/Finderbar/browse/id/${props.id}`}>
+			<CardActionArea onClick={props.handleModalOpen}>
 				<CardMedia
 					component="img"
 					height="200"
