@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/Finderbar/static/css/main.5da68ca8.css",
-    "main.js": "/Finderbar/static/js/main.a9a30b64.js",
+    "main.css": "/Finderbar/static/css/main.7de08fc5.css",
+    "main.js": "/Finderbar/static/js/main.f486b617.js",
     "service-worker.js": "/Finderbar/service-worker.js",
     "index.html": "/Finderbar/index.html"
   },
   "entrypoints": [
-    "static/css/main.5da68ca8.css",
-    "static/js/main.a9a30b64.js"
+    "static/css/main.7de08fc5.css",
+    "static/js/main.f486b617.js"
   ]
 }
