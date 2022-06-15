@@ -34,7 +34,7 @@ const Carousel = (props) => {
 					boxShadow: "0px 0px 5px black",
 				}}
 			/>
-			<Typography>{credit.name}</Typography>
+			<Typography variant="caption">{credit.name}</Typography>
 		</Box>
 	));
 
