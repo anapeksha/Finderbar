@@ -11,10 +11,13 @@ import {
 	useMediaQuery,
 	useTheme,
 } from "@mui/material";
-import { Carousel } from "../components";
+import { useState } from "react";
+import { BasicPopover, Carousel } from "../components";
 import { getIMDB, handleImage } from "../controllers";
 
 const Modal = (props) => {
+	const [anchorEl, setAnchorEl] = useState(null);
+
 	const handleClose = () => {
 		props.setOpen(false);
 	};
@@ -24,6 +27,10 @@ const Modal = (props) => {
 	const getID = async () => {
 		const res = await getIMDB(props.data.id);
 		console.log(res.imdb_id);
+	};
+
+	const handleClick = (event) => {
+		setAnchorEl(event.currentTarget);
 	};
 
 	return (
@@ -71,14 +78,16 @@ const Modal = (props) => {
 					</DialogContent>
 					<DialogActions sx={{ display: "flex", justifyContent: "center" }}>
 						<Button
-							variant="outlined"
+							variant="text"
 							startIcon={<DownloadForOfflineRoundedIcon />}
 							sx={{ color: "#c9cfcf" }}
+							onClick={handleClick}
 						>
 							Download
 						</Button>
 					</DialogActions>
 					<Carousel id={props.data.id} />
+					<BasicPopover anchor={anchorEl} setAnchor={setAnchorEl} />
 				</Box>
 			</Dialog>
 		</div>
