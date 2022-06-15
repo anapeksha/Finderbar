@@ -29,11 +29,11 @@ const Carousel = (props) => {
 				alt={credit?.name}
 				onDragStart={handleDragStart}
 				style={{
-					borderRadius: "10px",
+					borderRadius: "5px",
 					marginBottom: "5px",
-					boxShadow: "0px 0px 5px black",
-					maxWidth: "35vw",
-					maxHeight: "10vh",
+					boxShadow:
+						"rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px",
+					maxWidth: "100%",
 				}}
 			/>
 			<Typography variant="caption">{credit.name}</Typography>
