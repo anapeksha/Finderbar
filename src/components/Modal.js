@@ -1,7 +1,6 @@
 import DownloadForOfflineRoundedIcon from "@mui/icons-material/DownloadForOfflineRounded";
 import {
 	Box,
-	Button,
 	Dialog,
 	DialogActions,
 	DialogContent,
@@ -11,12 +10,15 @@ import {
 	useMediaQuery,
 	useTheme,
 } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BasicPopover, Carousel } from "../components";
-import { getIMDB, handleImage } from "../controllers";
+import { getIMDB, getYTS, handleImage } from "../controllers";
+import { CustomButton } from "../styles";
 
 const Modal = (props) => {
 	const [anchorEl, setAnchorEl] = useState(null);
+	const [torrents, setTorrents] = useState([]);
+	const [found, setFound] = useState(false);
 
 	const handleClose = () => {
 		props.setOpen(false);
@@ -24,10 +26,27 @@ const Modal = (props) => {
 	const theme = useTheme();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
 
-	const getID = async () => {
-		const res = await getIMDB(props.data.id);
-		console.log(res.imdb_id);
+	const getTorrent = async () => {
+		if (props.data.id !== undefined) {
+			var imdb_id = await getIMDB(props.data.id);
+			console.log("imdb", imdb_id);
+			if (imdb_id !== undefined) {
+				var torrent = await getYTS(imdb_id);
+				if (torrent.data.movies !== undefined) {
+					setTorrents(torrent.data.movies[0].torrents);
+					setFound(true);
+				}
+				else
+					setFound(false);
+			}
+		}
 	};
+
+	useEffect(() => {
+		getTorrent();
+		console.log(torrents);
+		console.log(props.data.id);
+	}, [props.data.id]);
 
 	const handleClick = (event) => {
 		setAnchorEl(event.currentTarget);
@@ -50,7 +69,7 @@ const Modal = (props) => {
 						)}
 						sx={{ display: "flex", objectFit: "contain", width: "100%" }}
 					/>
-					<DialogTitle id="responsive-dialog-title">
+					<DialogTitle id="responsive-dialog-title" variant="h4">
 						{props.data.title || props.data.original_title}
 					</DialogTitle>
 					<DialogContent>
@@ -77,17 +96,26 @@ const Modal = (props) => {
 						</DialogContentText>
 					</DialogContent>
 					<DialogActions sx={{ display: "flex", justifyContent: "center" }}>
-						<Button
-							variant="text"
+						<CustomButton
+							variant="contained"
 							startIcon={<DownloadForOfflineRoundedIcon />}
-							sx={{ color: "#c9cfcf" }}
 							onClick={handleClick}
 						>
 							Download
-						</Button>
+						</CustomButton>
+						<BasicPopover
+							anchor={anchorEl}
+							setAnchor={setAnchorEl}
+							data={torrents}
+							found={found}
+						/>
 					</DialogActions>
+					<DialogContent>
+						<DialogContentText variant="subtitle1" style={{ color: "#c9cfcf" }}>
+							Cast
+						</DialogContentText>
+					</DialogContent>
 					<Carousel id={props.data.id} />
-					<BasicPopover anchor={anchorEl} setAnchor={setAnchorEl} />
 				</Box>
 			</Dialog>
 		</div>
