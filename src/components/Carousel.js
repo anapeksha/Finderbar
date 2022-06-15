@@ -32,6 +32,8 @@ const Carousel = (props) => {
 					borderRadius: "10px",
 					marginBottom: "5px",
 					boxShadow: "0px 0px 5px black",
+					maxWidth: "35vw",
+					maxHeight: "10vh",
 				}}
 			/>
 			<Typography variant="caption">{credit.name}</Typography>
