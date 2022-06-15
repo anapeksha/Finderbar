@@ -12,7 +12,6 @@ const Browse = () => {
 	const [searching, setSearching] = useState(false);
 	const [searchResults, setSearchResults] = useState([]);
 	const [modalOpen, setModalOpen] = useState(false);
-
 	const [dataonClick, setDataonClick] = useState({});
 
 	const handleSearch = () => {
