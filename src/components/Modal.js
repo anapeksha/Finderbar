@@ -1,5 +1,7 @@
+import DownloadForOfflineRoundedIcon from "@mui/icons-material/DownloadForOfflineRounded";
 import {
 	Box,
+	Button,
 	Dialog,
 	DialogActions,
 	DialogContent,
@@ -10,7 +12,7 @@ import {
 	useTheme,
 } from "@mui/material";
 import { Carousel } from "../components";
-import { handleImage } from "../controllers";
+import { getIMDB, handleImage } from "../controllers";
 
 const Modal = (props) => {
 	const handleClose = () => {
@@ -18,6 +20,11 @@ const Modal = (props) => {
 	};
 	const theme = useTheme();
 	const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+
+	const getID = async () => {
+		const res = await getIMDB(props.data.id);
+		console.log(res.imdb_id);
+	};
 
 	return (
 		<div>
@@ -62,9 +69,16 @@ const Modal = (props) => {
 							{props.data.overview}
 						</DialogContentText>
 					</DialogContent>
-					<DialogActions>
-						<Carousel id={props.data.id} />
+					<DialogActions sx={{ display: "flex", justifyContent: "center" }}>
+						<Button
+							variant="outlined"
+							startIcon={<DownloadForOfflineRoundedIcon />}
+							sx={{ color: "#c9cfcf" }}
+						>
+							Download
+						</Button>
 					</DialogActions>
+					<Carousel id={props.data.id} />
 				</Box>
 			</Dialog>
 		</div>
