@@ -1,6 +1,6 @@
 import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
 import { Box, Grid } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ScrollToTop from "react-scroll-to-top";
 import { Cards, Modal, Paginate, Searchbar } from "../components";
 import { handleImage, searchMovies, trendingMovies } from "../controllers";
@@ -87,7 +87,6 @@ const Browse = () => {
 									handleModalOpen={() => {
 										setDataonClick(result);
 										setModalOpen(true);
-										console.log(result);
 									}}
 								/>
 							</Grid>
