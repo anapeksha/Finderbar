@@ -1,3 +1,4 @@
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import DownloadForOfflineRoundedIcon from "@mui/icons-material/DownloadForOfflineRounded";
 import {
 	Box,
@@ -13,7 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import { BasicPopover, Carousel } from "../components";
 import { getIMDB, getYTS, handleImage } from "../controllers";
-import { CustomButton } from "../styles";
+import { CustomButton, CustomIconButton } from "../styles";
 
 const Modal = (props) => {
 	const [anchorEl, setAnchorEl] = useState(null);
@@ -35,9 +36,7 @@ const Modal = (props) => {
 				if (torrent.data.movies !== undefined) {
 					setTorrents(torrent.data.movies[0].torrents);
 					setFound(true);
-				}
-				else
-					setFound(false);
+				} else setFound(false);
 			}
 		}
 	};
@@ -53,72 +52,78 @@ const Modal = (props) => {
 	};
 
 	return (
-		<div>
-			<Dialog
-				fullScreen={fullScreen}
-				open={props.open}
-				onClose={handleClose}
-				TransitionComponent={Slide}
-				aria-labelledby="responsive-dialog-title"
-			>
-				<Box style={{ backgroundColor: "#252a35", color: "#c9cfcf" }}>
-					<Box
-						component="img"
-						src={handleImage(
-							props.data.backdrop_path || props.data.poster_path
-						)}
-						sx={{ display: "flex", objectFit: "contain", width: "100%" }}
+		<Dialog
+			fullScreen={fullScreen}
+			open={props.open}
+			onClose={handleClose}
+			TransitionComponent={Slide}
+			aria-labelledby="responsive-dialog-title"
+		>
+			<Box style={{ backgroundColor: "#252a35", color: "#c9cfcf" }}>
+				<DialogActions style={{ display: "flex", justifyContent: "start" }}>
+					<CustomIconButton onClick={handleClose}>
+						<CloseRoundedIcon fontSize="small" />
+					</CustomIconButton>
+				</DialogActions>
+				<Box
+					component="img"
+					src={handleImage(props.data.backdrop_path || props.data.poster_path)}
+					sx={{
+						display: "flex",
+						objectFit: "contain",
+						width: "100%",
+						borderRadius: "2px",
+					}}
+				/>
+				<DialogTitle id="responsive-dialog-title" variant="h4">
+					{props.data.title || props.data.original_title}
+				</DialogTitle>
+				<DialogContent>
+					<DialogContentText
+						gutterBottom
+						variant="subtitle1"
+						style={{ color: "#c9cfcf" }}
+					>
+						<strong>
+							{(
+								props.data.first_air_date ||
+								props.data.release_date ||
+								"-----"
+							).substring(0, 4)}
+						</strong>
+					</DialogContentText>
+					<DialogContentText
+						paragraph={true}
+						gutterBottom
+						variant="body2"
+						style={{ color: "#c9cfcf" }}
+					>
+						{props.data.overview}
+					</DialogContentText>
+				</DialogContent>
+				<DialogActions sx={{ display: "flex", justifyContent: "center" }}>
+					<CustomButton
+						variant="contained"
+						startIcon={<DownloadForOfflineRoundedIcon />}
+						onClick={handleClick}
+					>
+						Download
+					</CustomButton>
+					<BasicPopover
+						anchor={anchorEl}
+						setAnchor={setAnchorEl}
+						data={torrents}
+						found={found}
 					/>
-					<DialogTitle id="responsive-dialog-title" variant="h4">
-						{props.data.title || props.data.original_title}
-					</DialogTitle>
-					<DialogContent>
-						<DialogContentText
-							gutterBottom
-							variant="subtitle1"
-							style={{ color: "#c9cfcf" }}
-						>
-							<strong>
-								{(
-									props.data.first_air_date ||
-									props.data.release_date ||
-									"-----"
-								).substring(0, 4)}
-							</strong>
-						</DialogContentText>
-						<DialogContentText
-							paragraph={true}
-							gutterBottom
-							variant="body2"
-							style={{ color: "#c9cfcf" }}
-						>
-							{props.data.overview}
-						</DialogContentText>
-					</DialogContent>
-					<DialogActions sx={{ display: "flex", justifyContent: "center" }}>
-						<CustomButton
-							variant="contained"
-							startIcon={<DownloadForOfflineRoundedIcon />}
-							onClick={handleClick}
-						>
-							Download
-						</CustomButton>
-						<BasicPopover
-							anchor={anchorEl}
-							setAnchor={setAnchorEl}
-							data={torrents}
-							found={found}
-						/>
-					</DialogActions>
-					<DialogContent>
-						<DialogContentText variant="subtitle1" style={{ color: "#c9cfcf" }}>
-							Cast
-						</DialogContentText>
-					</DialogContent>
-					<Carousel id={props.data.id} />
-				</Box>
-			</Dialog>
-		</div>
+				</DialogActions>
+				<DialogContent>
+					<DialogContentText variant="subtitle1" style={{ color: "#c9cfcf" }}>
+						Cast
+					</DialogContentText>
+				</DialogContent>
+				<Carousel id={props.data.id} />
+			</Box>
+		</Dialog>
 	);
 };
 export default Modal;
