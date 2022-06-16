@@ -120,8 +120,8 @@ const Modal = (props) => {
 					<DialogContentText variant="subtitle1" style={{ color: "#c9cfcf" }}>
 						Cast
 					</DialogContentText>
+					<Carousel id={props.data.id} />
 				</DialogContent>
-				<Carousel id={props.data.id} />
 			</Box>
 		</Dialog>
 	);
