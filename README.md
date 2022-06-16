@@ -66,8 +66,6 @@
 
 [![Product Screen Shot][product-screenshot]](https://github.com/anapeksha/foodzpah-frontend)
 
-A simple food ordering app with user and admin sections.
-
 <p align="right">(<a href="#top">Back to top</a>)</p>
 
 ### Built With
