@@ -30,10 +30,9 @@ const Modal = (props) => {
 	const getTorrent = async () => {
 		if (props.data.id !== undefined) {
 			var imdb_id = await getIMDB(props.data.id);
-			console.log("imdb", imdb_id);
 			if (imdb_id !== undefined) {
 				var torrent = await getYTS(imdb_id);
-				if (torrent.data.movies !== undefined) {
+				if (torrent!==undefined && torrent.data.movie_count !== 0) {
 					setTorrents(torrent.data.movies[0].torrents);
 					setFound(true);
 				} else setFound(false);
@@ -43,8 +42,6 @@ const Modal = (props) => {
 
 	useEffect(() => {
 		getTorrent();
-		console.log(torrents);
-		console.log(props.data.id);
 	}, [props.data.id]);
 
 	const handleClick = (event) => {
@@ -74,6 +71,7 @@ const Modal = (props) => {
 						width: "100%",
 						borderRadius: "2px",
 					}}
+					alt="props.data.title"
 				/>
 				<DialogTitle id="responsive-dialog-title" variant="h4">
 					{props.data.title || props.data.original_title}
@@ -89,7 +87,11 @@ const Modal = (props) => {
 								props.data.first_air_date ||
 								props.data.release_date ||
 								"-----"
-							).substring(0, 4)}
+							).substring(0, 4)}{" "}
+							[
+							{props.data.original_language &&
+								props.data.original_language.toUpperCase()}
+							]
 						</strong>
 					</DialogContentText>
 					<DialogContentText
