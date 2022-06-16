@@ -1,7 +1,6 @@
-import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import { Browse, Home } from "./pages";
+import { Browse, Home, Trending } from "./pages";
 
 const App = () => {
 	return (
@@ -10,6 +9,7 @@ const App = () => {
 			<Routes>
 				<Route path="/Finderbar" element={<Home />} />
 				<Route path="/Finderbar/browse" element={<Browse />} />
+				<Route path="/Finderbar/trending" element={<Trending />} />
 			</Routes>
 		</div>
 	);
