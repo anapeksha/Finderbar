@@ -29,7 +29,7 @@ const Browse = () => {
 				setAllPages(data.total_pages);
 			});
 		} else {
-			trendingMovies(page).then((data) => {
+			trendingMovies(page, "week").then((data) => {
 				setSearchResults(data.results);
 			});
 		}
