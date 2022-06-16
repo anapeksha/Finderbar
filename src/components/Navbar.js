@@ -1,10 +1,26 @@
+import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
-import { AppBar, Box, IconButton, Toolbar, Typography } from "@mui/material";
-import * as React from "react";
+import {
+	AppBar,
+	Box,
+	Breadcrumbs,
+	IconButton,
+	Stack,
+	Toolbar,
+	Typography,
+} from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import { CustomLink } from "../styles";
 
 const Navbar = () => {
 	const navigate = useNavigate();
+	const breadcrumbs = [
+		<CustomLink to="/Finderbar">
+			Home
+		</CustomLink>,
+		<CustomLink to="/Finderbar/trending">Trending</CustomLink>,
+		<CustomLink to="/Finderbar/browse">Browse</CustomLink>,
+	];
 	return (
 		<Box sx={{ flexGrow: 1 }}>
 			<AppBar
@@ -31,6 +47,18 @@ const Navbar = () => {
 							Finderbar
 						</Link>
 					</Typography>
+					<Stack spacing={2} style={{ color: "#A9A9A9" }}>
+						<Breadcrumbs
+							separator={
+								<HorizontalRuleIcon
+									fontSize="small"
+									style={{ color: "#A9A9A9" }}
+								/>
+							}
+						>
+							{breadcrumbs}
+						</Breadcrumbs>
+					</Stack>
 				</Toolbar>
 			</AppBar>
 		</Box>
