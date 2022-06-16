@@ -8,7 +8,7 @@ on:
     branches: [main]
     paths-ignore:
       - README.md
-      - screenshots/project-screenshot.png
+      - assets/
   pull_request:
     branches: [main]
 
