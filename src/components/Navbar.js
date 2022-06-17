@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { CustomLink } from "../styles";
-import "../styles/Navbar.css";
 
 const Navbar = () => {
 	const navigate = useNavigate();
