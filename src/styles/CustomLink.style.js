@@ -5,7 +5,7 @@ const CustomLink = styled(Link)({
 	textDecoration: "none",
 	color: "#c9cfcf",
 	"&:hover": {
-		color: "#b0b0b0",
+		color: "#93989b",
 	},
 });
 
