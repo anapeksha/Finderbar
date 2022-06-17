@@ -1,4 +1,3 @@
-import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
 import TheaterComedyIcon from "@mui/icons-material/TheaterComedy";
 import {
 	AppBar,
@@ -11,13 +10,13 @@ import {
 } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { CustomLink } from "../styles";
+import "../styles/Navbar.css";
 
 const Navbar = () => {
 	const navigate = useNavigate();
+
 	const breadcrumbs = [
-		<CustomLink to="/Finderbar">
-			Home
-		</CustomLink>,
+		<CustomLink to="/Finderbar">Home</CustomLink>,
 		<CustomLink to="/Finderbar/trending">Trending</CustomLink>,
 		<CustomLink to="/Finderbar/browse">Browse</CustomLink>,
 	];
@@ -47,17 +46,8 @@ const Navbar = () => {
 							Finderbar
 						</Link>
 					</Typography>
-					<Stack spacing={2} style={{ color: "#A9A9A9" }}>
-						<Breadcrumbs
-							separator={
-								<HorizontalRuleIcon
-									fontSize="small"
-									style={{ color: "#A9A9A9" }}
-								/>
-							}
-						>
-							{breadcrumbs}
-						</Breadcrumbs>
+					<Stack spacing={2}>
+						<Breadcrumbs separator="">{breadcrumbs}</Breadcrumbs>
 					</Stack>
 				</Toolbar>
 			</AppBar>
