@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getYTS = (query) => {
-	return axios(`https://yts.mx/api/v2/list_movies.json?query_term=${query}`, {
+	return axios(`https://yts.mx/api/v2/movie_details.json?imdb_id=${query}`, {
 		method: "GET",
 	})
 		.then((response) => {

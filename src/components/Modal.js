@@ -32,8 +32,8 @@ const Modal = (props) => {
 			var imdb_id = await getIMDB(props.data.id);
 			if (imdb_id !== undefined) {
 				var torrent = await getYTS(imdb_id);
-				if (torrent!==undefined && torrent.data.movie_count !== 0) {
-					setTorrents(torrent.data.movies[0].torrents);
+				if (torrent !== undefined) {
+					setTorrents(torrent.data.movie.torrents);
 					setFound(true);
 				} else setFound(false);
 			}
