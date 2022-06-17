@@ -68,7 +68,7 @@ const BasicPopover = (props) => {
 						</Stack>
 					) : (
 						<Typography variant="body2" sx={{ p: 2 }}>
-							Not Yet available
+							Not Yet Available
 						</Typography>
 					)}
 				</Popover>
