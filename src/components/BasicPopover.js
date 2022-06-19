@@ -53,7 +53,7 @@ const BasicPopover = (props) => {
 							sx={{ p: 2 }}
 							divider={<Divider orientation="vertical" flexItem />}
 						>
-							{props.data.map((torrent, i) => {
+							{props.data.torrents.map((torrent, i) => {
 								return (
 									<Link
 										href={torrent.url}

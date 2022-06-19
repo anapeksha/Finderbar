@@ -18,7 +18,10 @@ import { CustomButton, CustomIconButton } from "../styles";
 
 const Modal = (props) => {
 	const [anchorEl, setAnchorEl] = useState(null);
-	const [torrents, setTorrents] = useState([]);
+	const [torrentData, setTorrentData] = useState({
+		imdb_rating: "",
+		torrents: [],
+	});
 	const [found, setFound] = useState(false);
 
 	const handleClose = () => {
@@ -33,7 +36,10 @@ const Modal = (props) => {
 			if (imdb_id !== undefined) {
 				var torrent = await getYTS(imdb_id);
 				if (torrent !== undefined && torrent.data.movie.title !== null) {
-					setTorrents(torrent.data.movie.torrents);
+					setTorrentData({
+						imdb_rating: torrent.data.movie.rating,
+						torrents: torrent.data.movie.torrents,
+					});
 					setFound(true);
 				} else setFound(false);
 			}
@@ -77,11 +83,7 @@ const Modal = (props) => {
 					{props.data.title || props.data.original_title}
 				</DialogTitle>
 				<DialogContent>
-					<DialogContentText
-						gutterBottom
-						variant="subtitle1"
-						style={{ color: "#c9cfcf" }}
-					>
+					<DialogContentText variant="subtitle1" style={{ color: "#c9cfcf" }}>
 						<strong>
 							{(
 								props.data.first_air_date ||
@@ -93,6 +95,13 @@ const Modal = (props) => {
 								props.data.original_language.toUpperCase()}
 							]
 						</strong>
+					</DialogContentText>
+					<DialogContentText
+						gutterBottom
+						variant="subtitle2"
+						style={{ color: "#c9cfcf" }}
+					>
+						IMDb - <strong>{torrentData.imdb_rating}★</strong>
 					</DialogContentText>
 					<DialogContentText
 						paragraph={true}
@@ -114,7 +123,7 @@ const Modal = (props) => {
 					<BasicPopover
 						anchor={anchorEl}
 						setAnchor={setAnchorEl}
-						data={torrents}
+						data={torrentData}
 						found={found}
 					/>
 				</DialogActions>
