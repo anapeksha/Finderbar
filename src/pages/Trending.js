@@ -1,9 +1,9 @@
 import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
 import { Box, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import ScrollToTop from "react-scroll-to-top";
 import { Cards, Modal } from "../components";
 import { handleImage, trendingMovies } from "../controllers";
+import { CustomScroll } from "../styles";
 
 const Trending = () => {
 	const [trending, setTrending] = useState([]);
@@ -42,11 +42,7 @@ const Trending = () => {
 					margin: "3vh 2vw",
 				}}
 			>
-				<ScrollToTop
-					smooth
-					style={{ backgroundColor: "#e4e4e4" }}
-					component={<KeyboardArrowUpRoundedIcon />}
-				/>
+				<CustomScroll smooth component={<KeyboardArrowUpRoundedIcon />} />
 				<Grid sx={{ flexGrow: 1 }} container spacing={2.75}>
 					{trending.map((result) => {
 						return (
