@@ -72,7 +72,6 @@ const Browse = () => {
 			>
 				<ScrollToTop
 					smooth
-					style={{ backgroundColor: "#e4e4e4" }}
 					component={<KeyboardArrowUpRoundedIcon />}
 				/>
 				<Grid sx={{ flexGrow: 1 }} container spacing={2.75}>
