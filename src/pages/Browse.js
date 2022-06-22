@@ -70,11 +70,8 @@ const Browse = () => {
 					margin: "3vh 2vw",
 				}}
 			>
-				<ScrollToTop
-					smooth
-					component={<KeyboardArrowUpRoundedIcon />}
-				/>
-				<Grid sx={{ flexGrow: 1 }} container spacing={2.75}>
+				<ScrollToTop smooth component={<KeyboardArrowUpRoundedIcon />} />
+				<Grid sx={{ flexGrow: 1 }} container spacing={2}>
 					{searchResults.map((result) => {
 						return (
 							<Grid item xs={4} sm={3} md={2} key={result.id}>

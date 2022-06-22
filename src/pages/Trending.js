@@ -43,7 +43,7 @@ const Trending = () => {
 				}}
 			>
 				<ScrollToTop smooth component={<KeyboardArrowUpRoundedIcon />} />
-				<Grid sx={{ flexGrow: 1 }} container spacing={2.75}>
+				<Grid sx={{ flexGrow: 1 }} container spacing={2}>
 					{trending.map((result) => {
 						return (
 							<Grid item xs={4} sm={3} md={2} key={result.id}>
