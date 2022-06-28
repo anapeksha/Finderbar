@@ -15,9 +15,15 @@ const Navbar = () => {
 	const navigate = useNavigate();
 
 	const breadcrumbs = [
-		<CustomLink to="/Finderbar">Home</CustomLink>,
-		<CustomLink to="/Finderbar/trending">Trending</CustomLink>,
-		<CustomLink to="/Finderbar/browse">Browse</CustomLink>,
+		<CustomLink to="/Finderbar" key={1}>
+			Home
+		</CustomLink>,
+		<CustomLink to="/Finderbar/trending" key={2}>
+			Trending
+		</CustomLink>,
+		<CustomLink to="/Finderbar/browse" key={3}>
+			Browse
+		</CustomLink>,
 	];
 	return (
 		<Box sx={{ flexGrow: 1 }}>
