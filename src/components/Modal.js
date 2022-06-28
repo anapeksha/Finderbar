@@ -77,7 +77,7 @@ const Modal = (props) => {
 						width: "100%",
 						borderRadius: "2px",
 					}}
-					alt="props.data.title"
+					alt={props.data.title}
 				/>
 				<DialogTitle id="responsive-dialog-title" variant="h4">
 					{props.data.title || props.data.original_title}
@@ -101,7 +101,12 @@ const Modal = (props) => {
 						variant="subtitle2"
 						style={{ color: "#c9cfcf" }}
 					>
-						IMDb - <strong>{torrentData.imdb_rating}★</strong>
+						IMDb -{" "}
+						<strong>
+							{torrentData.imdb_rating >= "1"
+								? torrentData.imdb_rating + "★"
+								: "Not yet available"}
+						</strong>
 					</DialogContentText>
 					<DialogContentText
 						paragraph={true}
