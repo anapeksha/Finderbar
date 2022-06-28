@@ -47,4 +47,3 @@ jobs:
           github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
           repository: ${{ github.repository }}
           REACT_APP_MOVIEDB_API_KEY: ${{secrets.REACT_APP_MOVIEDB_API_KEY}}
-          GENERATE_SOURCEMAP: false
