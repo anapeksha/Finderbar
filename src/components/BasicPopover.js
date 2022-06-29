@@ -3,6 +3,7 @@ import {
 	Divider,
 	Link,
 	Popover,
+	Paper,
 	Stack,
 	ThemeProvider,
 	Typography,
@@ -33,25 +34,23 @@ const BasicPopover = (props) => {
 	const open = Boolean(props.anchor);
 
 	return (
-		<div>
 			<ThemeProvider theme={theme}>
 				<Popover
 					open={open}
-					anchorEl={props.anchor}
 					onClose={handleClose}
-					anchorOrigin={{
-						vertical: "bottom",
-						horizontal: "left",
-					}}
+					anchorEl={props.anchor}
+					anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+					transformOrigin={{ vertical: 'top', horizontal: 'center' }}
 					color="primary"
 					TransitionComponent={Zoom}
 				>
+					<Paper style={{overflow: "auto"}} elevation={8}>
 					{props.found ? (
 						<Stack
 							direction="row"
 							spacing={2}
 							sx={{ p: 2 }}
-							divider={<Divider orientation="vertical" flexItem />}
+							divider={<Divider orientation="vertical" flexItem={true} />}
 						>
 							{props.data.torrents.map((torrent, i) => {
 								return (
@@ -71,9 +70,9 @@ const BasicPopover = (props) => {
 							Not Yet Available
 						</Typography>
 					)}
+					</Paper>
 				</Popover>
 			</ThemeProvider>
-		</div>
 	);
 };
 

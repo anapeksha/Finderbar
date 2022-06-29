@@ -51,7 +51,7 @@ const Modal = (props) => {
 	}, [props.data.id]);
 
 	const handleClick = (event) => {
-		setAnchorEl(event.currentTarget);
+		setAnchorEl(anchorEl ? null : event.currentTarget);
 	};
 
 	return (
