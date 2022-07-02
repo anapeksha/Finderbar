@@ -43,8 +43,9 @@ const BasicPopover = (props) => {
 					transformOrigin={{ vertical: 'top', horizontal: 'center' }}
 					color="primary"
 					TransitionComponent={Zoom}
+					elevation={12}
 				>
-					<Paper style={{overflow: "auto"}} elevation={8}>
+					<Paper style={{overflow: "auto"}}>
 					{props.found ? (
 						<Stack
 							direction="row"
