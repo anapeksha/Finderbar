@@ -2,8 +2,8 @@ import {
 	createTheme,
 	Divider,
 	Link,
-	Popover,
 	Paper,
+	Popover,
 	Stack,
 	ThemeProvider,
 	Typography,
@@ -34,18 +34,18 @@ const BasicPopover = (props) => {
 	const open = Boolean(props.anchor);
 
 	return (
-			<ThemeProvider theme={theme}>
-				<Popover
-					open={open}
-					onClose={handleClose}
-					anchorEl={props.anchor}
-					anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-					transformOrigin={{ vertical: "top", horizontal: "center" }}
-					color="primary"
-					TransitionComponent={Zoom}
-					elevation={12}
-				>
-					<Paper style={{overflow: "auto"}}>
+		<ThemeProvider theme={theme}>
+			<Popover
+				open={open}
+				onClose={handleClose}
+				anchorEl={props.anchor}
+				anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+				transformOrigin={{ vertical: "top", horizontal: "center" }}
+				color="primary"
+				TransitionComponent={Zoom}
+				elevation={12}
+			>
+				<Paper style={{ overflow: "auto" }}>
 					{props.found ? (
 						<Stack
 							direction="row"
@@ -71,9 +71,9 @@ const BasicPopover = (props) => {
 							Not Yet Available
 						</Typography>
 					)}
-					</Paper>
-				</Popover>
-			</ThemeProvider>
+				</Paper>
+			</Popover>
+		</ThemeProvider>
 	);
 };
 

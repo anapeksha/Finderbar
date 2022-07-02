@@ -18,7 +18,9 @@
             "double"
         ],
         "react-hooks/rules-of-hooks": "error",
-        "react-hooks/exhaustive-deps": "warn"
+        "react-hooks/exhaustive-deps": "warn",
+        "react/jsx-uses-react": 0,
+        "react/react-in-jsx-scope": 0
     },
     "parserOptions": {
         "ecmaVersion": 2021,

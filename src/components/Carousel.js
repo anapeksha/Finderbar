@@ -15,7 +15,7 @@ const Carousel = (props) => {
 		});
 	}, []);
 
-	const items = credits.map((credit) => (
+	const items = credits.map((credit, i) => (
 		<Box
 			style={{
 				display: "flex",
@@ -23,6 +23,7 @@ const Carousel = (props) => {
 				objectFit: "contain",
 				padding: "20px",
 			}}
+			key={i}
 		>
 			<Box
 				component="img"
