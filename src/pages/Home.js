@@ -1,6 +1,6 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { Box, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CustomIconButton, Wrapper } from "../styles";
 

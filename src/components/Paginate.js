@@ -5,7 +5,6 @@ import {
 	Stack,
 	ThemeProvider,
 } from "@mui/material";
-import * as React from "react";
 
 const theme = createTheme({
 	palette: {

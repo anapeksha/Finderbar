@@ -5,7 +5,6 @@ import {
 	CardMedia,
 	Typography,
 } from "@mui/material";
-import * as React from "react";
 
 const Cards = (props) => {
 	return (
