@@ -39,8 +39,8 @@ const BasicPopover = (props) => {
 					open={open}
 					onClose={handleClose}
 					anchorEl={props.anchor}
-					anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-					transformOrigin={{ vertical: 'top', horizontal: 'center' }}
+					anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+					transformOrigin={{ vertical: "top", horizontal: "center" }}
 					color="primary"
 					TransitionComponent={Zoom}
 					elevation={12}
