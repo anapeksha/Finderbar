@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Finderbar/static/css/main.5a052b9d.css",
-    "main.js": "/Finderbar/static/js/main.71f658b7.js",
+    "main.js": "/Finderbar/static/js/main.d0357877.js",
     "service-worker.js": "/Finderbar/service-worker.js",
     "index.html": "/Finderbar/index.html",
     "main.5a052b9d.css.map": "/Finderbar/static/css/main.5a052b9d.css.map",
-    "main.71f658b7.js.map": "/Finderbar/static/js/main.71f658b7.js.map"
+    "main.d0357877.js.map": "/Finderbar/static/js/main.d0357877.js.map"
   },
   "entrypoints": [
     "static/css/main.5a052b9d.css",
-    "static/js/main.71f658b7.js"
+    "static/js/main.d0357877.js"
   ]
 }
