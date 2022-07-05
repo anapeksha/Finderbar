@@ -13,7 +13,7 @@ const Carousel = (props) => {
 		handleCredits(props.id).then((data) => {
 			setCredits(data.cast);
 		});
-	}, []);
+	}, [props.id]);
 
 	const items = credits.map((credit, i) => (
 		<Box
