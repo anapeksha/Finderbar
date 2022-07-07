@@ -10,6 +10,12 @@ const Searchbar = (props) => {
 				value={props.value}
 				onChange={(event) => props.handleChange(event.target.value)}
 				placeholder="Search"
+				onKeyDown={(event) => {
+					if (event.key === "Enter") {
+						event.preventDefault();
+						props.onSearch();
+					}
+				}}
 				sx={{
 					input: {
 						color: "white",
