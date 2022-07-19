@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import { handleCredits, handleImage } from "../controllers";

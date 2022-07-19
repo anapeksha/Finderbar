@@ -11,7 +11,7 @@ import {
 	useMediaQuery,
 	useTheme,
 } from "@mui/material";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BasicPopover, Carousel } from "../components";
 import { getIMDB, getYTS, handleImage } from "../controllers";
 import { CustomButton, CustomIconButton } from "../styles";

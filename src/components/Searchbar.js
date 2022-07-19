@@ -2,6 +2,7 @@ import { Search } from "@mui/icons-material";
 import ClearIcon from "@mui/icons-material/Clear";
 import { InputAdornment } from "@mui/material";
 import { CustomIconButton, CustomTextField } from "../styles";
+import React from "react";
 
 const Searchbar = (props) => {
 	return (

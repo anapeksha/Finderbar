@@ -1,6 +1,6 @@
 import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
 import { Box, Grid, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ScrollToTop from "react-scroll-to-top";
 import { Cards, Modal } from "../components";
 import { handleImage, trendingMovies } from "../controllers";

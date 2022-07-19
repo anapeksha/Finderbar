@@ -1,4 +1,5 @@
 import KeyboardArrowUpRoundedIcon from "@mui/icons-material/KeyboardArrowUpRounded";
+import React from "react";
 import { Box, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import ScrollToTop from "react-scroll-to-top";
@@ -12,7 +13,7 @@ const Browse = () => {
 	const [searching, setSearching] = useState(false);
 	const [searchResults, setSearchResults] = useState([]);
 	const [modalOpen, setModalOpen] = useState(false);
-	const [dataonClick, setDataonClick] = useState({});
+	const [dataOnClick, setDataOnClick] = useState({});
 
 	const handleSearch = () => {
 		searchMovies(searchQuery, 1).then((data) => {
@@ -33,9 +34,7 @@ const Browse = () => {
 				setSearchResults(data.results);
 			});
 		}
-
-		// eslint-disable-next-line
-	}, [page, searching]);
+	}, [page, searchQuery, searching]);
 
 	const handlePagination = () => {
 		if (searching) {
@@ -81,7 +80,7 @@ const Browse = () => {
 									title={result.title}
 									id={result.id}
 									handleModalOpen={() => {
-										setDataonClick(result);
+										setDataOnClick(result);
 										setModalOpen(true);
 									}}
 								/>
@@ -90,7 +89,7 @@ const Browse = () => {
 					})}
 				</Grid>
 			</Box>
-			<Modal data={dataonClick} open={modalOpen} setOpen={setModalOpen} />
+			<Modal data={dataOnClick} open={modalOpen} setOpen={setModalOpen} />
 			<Box>{handlePagination()}</Box>
 		</Box>
 	);
